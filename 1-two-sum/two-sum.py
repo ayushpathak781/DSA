@@ -1,6 +1,6 @@
 class Solution:
     def twoSum(self, nums, target):
-        seen = {}  # value -> index
+        seen = {} #ayushpathak781
         for i, num in enumerate(nums):
             need = target - num
             if need in seen:
