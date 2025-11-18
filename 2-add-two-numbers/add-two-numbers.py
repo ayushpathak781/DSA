@@ -1,22 +1,24 @@
-class Solution(object):
-    def addTwoNumbers(self, l1, l2):
+class Solution:
+    def addTwoNumbers(self, head1, head2):
+    #ayushpathak781
+        temp1 = head1
+        temp2 = head2
+        new_head = ListNode(-1)
+        dummy = new_head
         carry = 0
-        dummy = ListNode(0)
-        curr = dummy
-        #ayushpathak781
-        while l1 or l2 or carry:
-            x = l1.val if l1 else 0
-            y = l2.val if l2 else 0
 
-            total = x + y + carry
-            carry = total // 10
+        while temp1 or temp2 or carry:
 
-            curr.next = ListNode(total % 10)
-            curr = curr.next
+            s = carry
+            if temp1:
+                s += temp1.val
+                temp1 = temp1.next
+            if temp2:
+                s += temp2.val
+                temp2 = temp2.next
 
-            if l1:
-                l1 = l1.next
-            if l2:
-                l2 = l2.next
+            carry = s // 10
+            dummy.next = ListNode(s % 10)
+            dummy = dummy.next
 
-        return dummy.next
+        return new_head.next
